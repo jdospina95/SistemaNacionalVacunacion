@@ -1,0 +1,57 @@
+<!-- Main -->
+<div id="main-wrapper">
+	<div class="container">
+
+		<!-- Content -->
+		<article class="box post">
+			<a href="#" class="image"><img src="/images/historial.jpg" alt="" /></a>
+			<header>
+				<h2>Consultar Historial de Vacunación</h2>
+				<p>Ingresa tu numero de documento para realizar la consulta</p>
+			</header>
+			<p>
+				<section class="get">
+					<form method="post" action="/users/historial">
+						<div class="block center">
+							<div class="form-group">
+								<label>Tipo de Documento</label>
+								<select id="tipoDocumento" name="tipoDocumento" style="width: 300px; display:inline-block;">
+			                        <option value="cc">Cedula de Ciudadania</option>
+			                        <option value="ti">Tarjeta de Identidad</option>
+			                        <option value="pasaporte">Pasaporte</option>
+			                    </select>
+							</div>
+							<div class="form-group">
+								<label>Numero de Documento</label>
+								<input type="text" class="form-control" name="documento" placeholder="Numero de Documento" style="width: 300px; display:inline-block;">
+							</div>
+							<p></p>
+							<button type="submit" class="btn btn-default">Consultar</button>
+						</div>
+					</form>
+					<p></p>
+					<div>
+						{{# each items }}
+							<article class="item">
+								<strong>Datos Paciente</strong>
+								<div>Nombre: {{ this.nombre }}</div>
+								<div>Edad: {{ this.edad }}</div>
+								<strong>Datos Vacuna</strong>
+								<div>Vacuna: {{ this.nombreVacuna }}</div>
+								<div>Dosis: {{ this.dosis }}</div>
+								<div>Fecha: {{ this.fecha }}</div>
+								<div>Laboratorio: {{ this.laboratorio }}</div>
+								<div>Numero Lote Vacuna: {{ this.numeroLote }}</div>
+								<strong>Datos Responsable Vacunación</strong>
+								<div>IPS: {{ this.IPS }}</div>
+								<div>Nombre de Quien Aplico la Vacuna: {{ this.nombreAplica }}</div>
+								<div>Numero de documento: {{ this.numDocumentoAplica }}</div>
+							</article>
+						{{/each}}
+					</div>
+				</section>
+			</p>
+		</article>
+
+	</div>
+</div>

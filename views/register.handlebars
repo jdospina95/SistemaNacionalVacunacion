@@ -1,0 +1,31 @@
+<h2 class="page-header">Registrar</h2>
+{{#if errors}} {{#each errors}}
+<div class="alert alert-danger">{{msg}}</div>
+{{/each}} {{/if}}
+<form method="post" action="/users/register">
+    <div class="form-group">
+        <label>IPS</label>
+        <select id="IPS" name="IPS" style="width: 300px; display:inline-block;">
+            <option value="Fundación Valle del Lili">Fundación Valle del Lili</option>
+            <option value="Fundación Santafe de Bogotá">Fundación Santafe de Bogotá</option>
+            <option value="Hospital Pablo Tobón Uribe">Hospital Pablo Tobón Uribe</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" style="width: 300px; display:inline-block;">
+    </div>
+    <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" class="form-control" placeholder="Usuario" name="username" style="width: 300px; display:inline-block;">
+    </div>
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" placeholder="Contraseña" name="password" style="width: 300px; display:inline-block;">
+    </div>
+    <div class="form-group">
+        <label>Confirmar Contraseña</label>
+        <input type="password" class="form-control" placeholder="Contraseña" name="password2" style="width: 300px; display:inline-block;">
+    </div>
+    <button type="submit" class="btn btn-default">Enviar</button>
+</form>

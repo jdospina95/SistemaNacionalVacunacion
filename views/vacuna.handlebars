@@ -1,0 +1,68 @@
+<section>
+    <h2 class="page-header">Registrar Aplicación de Vacuna</h2>
+    <form method="post" action="/ips/vacuna">
+        <div class="block center">
+            <p></p>
+            <h2>Datos Paciente</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumento" style="width: 300px; display:inline-block;">
+                    <option value="cc">Cedula de Ciudadania</option>
+                    <option value="ti">Tarjeta de Identidad</option>
+                    <option value="pasaporte">Pasaporte</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numeroDocumento" placeholder="Numero de Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="number" class="form-control" name="edad" placeholder="Edad" style="width: 300px; display:inline-block;">
+            </div>
+            <h2>Vacuna</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Nombre Vacuna</label>
+                <input type="text" class="form-control" name="nombreVacuna" placeholder="Nombre Vacuna" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Dosis</label>
+                <input type="text" class="form-control" name="dosis" placeholder="Dosis" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Fecha de Aplicación</label>
+                <input type="date" class="form-control" name="fecha" placeholder="Fecha" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Laboratorio</label>
+                <input type="text" class="form-control" name="laboratorio" placeholder="Laboratorio" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Numero Lote</label>
+                <input type="text" class="form-control" name="numeroLote" placeholder="Numero Lote Vacuna" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Fecha Proxima Vacuna</label>
+                <input type="date" class="form-control" name="fechaProximo" placeholder="Fecha Proxima Vacuna" style="width: 300px; display:inline-block;">
+            </div>
+            <h2>Datos de Quien Aplica Vacuna</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombreAplica" placeholder="Nombre" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numDocumentoAplica" placeholder="Numero Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-default">Enviar</button>
+        </div>
+    </form>
+</section>

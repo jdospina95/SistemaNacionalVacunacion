@@ -1,0 +1,44 @@
+<section>
+    <h2 class="page-header">Actualizar Carnet</h2>
+    <form method="post" action="/ips/vacuna">
+        <div class="block center">
+            <p></p>
+            <h2>Documento Anterior</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumento" style="width: 300px; display:inline-block;">
+                    <option value="cc">Cedula de Ciudadania</option>
+                    <option value="ti">Tarjeta de Identidad</option>
+                    <option value="pasaporte">Pasaporte</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numeroDocumento" placeholder="Numero de Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <p></p>
+            <p></p>
+            <h2>Documento Nuevo</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumentoNuevo" style="width: 300px; display:inline-block;">
+                    <option value="cc">Cedula de Ciudadania</option>
+                    <option value="ti">Tarjeta de Identidad</option>
+                    <option value="pasaporte">Pasaporte</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numeroDocumentoNuevo" placeholder="Numero de Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Fotocopia</label>
+                <input type="file" name="imagen" accept="image/*" style="width: 300px; display:inline-block;">
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-default">Enviar</button>
+        </div>
+    </form>
+</section>

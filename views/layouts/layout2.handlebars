@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Sistema Nacional Vacunación</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+    <div id="page-wrapper">
+        
+
+        <!-- Header -->
+        <div id="header-wrapper">
+
+                <!-- Logo -->
+                <div id="header">
+                    <a class="image"><img src="/images/1.jpg" ></a>
+                    
+                <h1><a href="index.html">Sistema Nacional de Vacunación</a></h1>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        {{#if user}}
+                        <li class="current"><a href="/users/index">Inicio</a></li>
+                        <li>
+                            <a>Carnet Vacunación</a>
+                            <ul>
+                                <li><a href="/ips/crearCarnet">Crear Carnet</a></li>
+                                <li><a href="/ips/actualizarCarnet">Actualizar Carnet</a></li>
+                                <li><a href="/ips/vacuna">Ingresar Vacuna</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/ips/estadisticas">Estadísticas</a></li>
+                        <li><a href="/users/logout">Cerrar Sesión</a></li>
+                        {{else}}
+                        <li class="current"><a href="/users/index">Inicio</a></li>
+                        <li><a href="/users/historial">Historial de Vacunación</a></li>
+                        <li><a href="/users/login">Iniciar Sesión</a></li>
+                        {{/if}}
+                    </ul>
+                </nav>
+                <p></p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {{#if success_msg}}
+                        <div class="alert alert-success">{{success_msg}}</div>
+                        {{/if}} {{#if error_msg}}
+                        <div class="alert alert-danger">{{error_msg}}</div>
+                        {{/if}} {{#if error}}
+                        <div class="alert alert-danger">{{error}}</div>
+                        {{/if}} 
+                    </div>
+                </div>
+                <p></p>
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/skel-viewport.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+    <footer style="display:inline-block;">
+    <section style="display:inline-block;">
+							<div class="12u" style="display:inline-block;">
+
+								<!-- Copyright -->
+									<div id="copyright" style="display:inline-block;">
+										<ul class="links" style="display:inline-block;">
+											<li>&copy; Sistema Nacional de Vacunación.</li><li>Diseño: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</section>
+	</footer>
+</body>
+
+</html>

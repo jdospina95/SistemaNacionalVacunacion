@@ -1,0 +1,80 @@
+<section>
+    <h2 class="page-header">Crear Carnet de Vacunación</h2>
+    <form method="post" action="/ips/vacuna">
+        <div class="block center">
+            <p></p>
+            <h2>Datos Persona</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumento" style="width: 300px; display:inline-block;">
+                        <option value="cc">Cedula de Ciudadania</option>
+                        <option value="ti">Tarjeta de Identidad</option>
+                        <option value="pasaporte">Pasaporte</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numeroDocumento" placeholder="Numero de Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" class="form-control" name="fechaNacimiento" placeholder="Fecha de Nacimiento" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Numero de Registro Civil</label>
+                <input type="number" class="form-control" name="numRegistro" placeholder="Numero Registro Civil" style="width: 300px; display:inline-block;">
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="file" name="imagen" accept="image/*" style="width: 300px; display:inline-block;">
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label>Numero de Certificado de Nacimiento</label>
+                <input type="text" class="form-control" name="numCertificadoNacimiento" placeholder="Certificado Nacimiento" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Sexo</label>
+                <select id="sexo" name="sexo" style="width: 300px; display:inline-block;">
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>Peso al Nacer</label>
+                <input type="text" class="form-control" name="peso" placeholder="Peso (Kg)" style="width: 300px; display:inline-block;">
+            </div>
+            <h2>Persona Responsable</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombreResponsable" placeholder="Nombre" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Dirección de Residencia</label>
+                <input type="text" class="form-control" name="direccionResidenciaResponsable" placeholder="Dirección" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Ciudad de Residencia</label>
+                <input type="text" class="form-control" name="ciudadResidencia" placeholder="Ciudad" style="width: 300px; display:inline-block;">
+            </div>
+            <h2>Datos de Quien Crea el Carnet</h2>
+            <p></p>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombreCrea" placeholder="Nombre" style="width: 300px; display:inline-block;">
+            </div>
+            <div class="form-group">
+                <label>Numero de Documento</label>
+                <input type="number" class="form-control" name="numeroDocumentoCrea" placeholder="Numero Documento" style="width: 300px; display:inline-block;">
+            </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
+        </div>
+    </form>
+</section>

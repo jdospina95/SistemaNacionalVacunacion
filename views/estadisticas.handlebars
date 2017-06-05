@@ -1,0 +1,279 @@
+<!-- Styles -->
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+        font-size: 11px;
+    }
+    #chartdiv2 {
+  width: 100%;
+  height: 500px;
+    }
+    #chartdiv3 {
+	width	: 100%;
+	height	: 500px;
+}	
+    #chartdiv1 {
+  width: 100%;
+  height: 500px;
+  font-size: 11px;
+}
+
+.amcharts-pie-slice {
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition-duration: 0.3s;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 0 30px 0 #000;
+}
+
+.amcharts-pie-slice:hover {
+  transform: scale(1.1);
+  filter: url(#shadow);
+}
+</style>
+
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/patterns.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/patterns.js"></script>
+
+<!-- Chart code -->
+<script>
+var delayMillis = 1000; //1 second
+
+setTimeout(function() {
+  var MyDiv1 = document.getElementById('DIV1').innerHTML;
+  var MyDiv2 = document.getElementById('DIV2').innerHTML;
+  var MyDiv3 = document.getElementById('DIV3').innerHTML;
+  var MyDiv4 = document.getElementById('DIV4').innerHTML;
+  var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "serial",
+  "theme": "patterns",
+  "dataProvider": JSON.parse(MyDiv1),
+  "valueAxes": [ {
+    "gridColor": "#FFFFFF",
+    "gridAlpha": 0.2,
+    "dashLength": 0
+  } ],
+  "gridAboveGraphs": true,
+  "startDuration": 1,
+  "graphs": [ {
+    "balloonText": "Edad [[category]]: <b>Vacunas [[value]]</b>",
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "numero"
+  } ],
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
+  },
+  "categoryField": "edad",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "gridAlpha": 0,
+    "tickPosition": "start",
+    "tickLength": 20
+  },
+  "export": {
+    "enabled": true
+  }
+
+} );
+var chart1 = AmCharts.makeChart("chartdiv1", {
+  "type": "pie",
+  "startDuration": 0,
+   "theme": "light",
+  "addClassNames": true,
+  "legend":{
+   	"position":"right",
+    "marginRight":100,
+    "autoMargins":false
+  },
+  "innerRadius": "30%",
+  "defs": {
+    "filter": [{
+      "id": "shadow",
+      "width": "200%",
+      "height": "200%",
+      "feOffset": {
+        "result": "offOut",
+        "in": "SourceAlpha",
+        "dx": 0,
+        "dy": 0
+      },
+      "feGaussianBlur": {
+        "result": "blurOut",
+        "in": "offOut",
+        "stdDeviation": 5
+      },
+      "feBlend": {
+        "in": "SourceGraphic",
+        "in2": "blurOut",
+        "mode": "normal"
+      }
+    }]
+  },
+  "dataProvider": JSON.parse(MyDiv2),
+  "valueField": "numero",
+  "titleField": "vacuna",
+  "export": {
+    "enabled": true
+  }
+});
+
+chart1.addListener("init", handleInit);
+
+chart1.addListener("rollOverSlice", function(e) {
+  handleRollOver(e);
+});
+
+function handleInit(){
+  chart1.legend.addListener("rollOverItem", handleRollOver);
+}
+
+function handleRollOver(e){
+  var wedge = e.dataItem.wedge.node;
+  wedge.parentNode.appendChild(wedge);
+}
+var chart2 = AmCharts.makeChart("chartdiv2", {
+    "theme": "patterns",
+    "type": "serial",
+    "dataProvider": JSON.parse(MyDiv3),
+    "valueAxes": [{
+        "title": "Numero de Vacunas por Ciudad"
+    }],
+    "graphs": [{
+        "balloonText": "Vacunas en [[category]]:[[value]]",
+        "fillAlphas": 1,
+        "lineAlpha": 0.2,
+        "title": "Income",
+        "type": "column",
+        "valueField": "numero"
+    }],
+    "depth3D": 20,
+    "angle": 30,
+    "rotate": true,
+    "categoryField": "ciudad",
+    "categoryAxis": {
+        "gridPosition": "start",
+        "fillAlpha": 0.05,
+        "position": "left"
+    },
+    "export": {
+    	"enabled": true
+     }
+});
+
+//Por Fechas
+
+var chart3 = AmCharts.makeChart("chartdiv3", {
+    "type": "serial",
+    "theme": "patterns",
+    "marginRight": 80,
+    "autoMarginOffset": 20,
+    "marginTop": 7,
+    "dataProvider": JSON.parse(MyDiv4),
+    "valueAxes": [{
+        "axisAlpha": 0.2,
+        "dashLength": 1,
+        "position": "left"
+    }],
+    "mouseWheelZoomEnabled": true,
+    "graphs": [{
+        "id": "g1",
+        "balloonText": "[[value]]",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "hideBulletsCount": 50,
+        "title": "red line",
+        "valueField": "numero",
+        "useLineColorForBulletBorder": true,
+        "balloon":{
+            "drop":true
+        }
+    }],
+    "chartScrollbar": {
+        "autoGridCount": true,
+        "graph": "g1",
+        "scrollbarHeight": 40
+    },
+    "chartCursor": {
+       "limitToGraph":"g1"
+    },
+    "categoryField": "fecha",
+    "categoryAxis": {
+        "parseDates": true,
+        "axisColor": "#DADADA",
+        "dashLength": 1,
+        "minorGridEnabled": true
+    },
+    "export": {
+        "enabled": true
+    }
+});
+
+chart.addListener("rendered", zoomChart);
+zoomChart();
+
+// this method is called when chart is first inited as we listen for "rendered" event
+function zoomChart() {
+    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+    chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
+}
+
+}, delayMillis);
+</script>
+
+<!-- HTML -->
+<div id="main-wrapper">
+  <div class="container">
+    <article class="box post">
+      <header>
+        <h2>Vacunas Por Edad</h2>
+        <p>Estadisticas para el numero de vacunas aplicadas por cada grupo de edad de los pacientes</p>
+        <h3 id="DIV1">{{data}}</h3>
+      </header>
+      <div id="chartdiv"></div>
+      <p></p>
+      <header>
+        <h2>Vacunas</h2>
+        <p>Estadisticas para el numero de vacunas aplicadas por cada vacuna diferente</p>
+        <h3 id="DIV2">{{data1}}</h3>
+      </header>
+      <div id="chartdiv1"></div>
+      <p></p>
+      <header>
+        <h2>Vacunas Por Ciudad</h2>
+        <p>Estadisticas para el numero de vacunas aplicadas por cada ciudad del País donde hay un IPS registrado</p>
+        <h3 id="DIV3">{{data2}}</h3>
+      </header>
+      <div id="chartdiv2"></div>
+      <p></p>
+      <header>
+        <h2>Vacunas Por Fechas</h2>
+        <p>Estadisticas para el numero de vacunas aplicadas según la fecha</p>
+        <h3 id="DIV4">{{data3}}</h3>
+      </header>
+      <div id="chartdiv3"></div>
+    </article>
+  </div>
+</div>
