@@ -11,7 +11,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://127.0.0.1:27017/vacunacion');
 mongoose.connect('mongodb://proyecto:proyecto1@ds161471.mlab.com:61471/vacunacion');
 var db = mongoose.connection;
